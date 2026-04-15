@@ -315,6 +315,7 @@ If there's an original landing page image visible, use it as inspiration for the
 **YOUR TASK**: Generate an improved landing page implementing ALL recommendations
 
 Use **generate_improved_landing_page** tool with an EXTREMELY DETAILED prompt.
+Call the tool exactly once. Do not produce additional narrative before or after the tool call.
 
 **Build the prompt by incorporating:**
 
