@@ -96,7 +96,10 @@ async def edit_landing_page_image(tool_context: ToolContext, inputs: EditLanding
 
     try:
         client = genai.Client()
-        inputs = EditLandingPageInput(**inputs)
+        if isinstance(inputs, BaseModel):
+            inputs = inputs
+        else:
+            inputs = EditLandingPageInput(**inputs)
         
         # Load the existing landing page image
         logger.info(f"Loading artifact: {inputs.artifact_filename}")
@@ -227,7 +230,10 @@ async def generate_improved_landing_page(tool_context: ToolContext, inputs: Gene
     
     try:
         client = genai.Client()
-        inputs = GenerateImprovedLandingPageInput(**inputs)
+        if isinstance(inputs, BaseModel):
+            inputs = inputs
+        else:
+            inputs = GenerateImprovedLandingPageInput(**inputs)
         
         # Note: Reference images from the conversation are automatically available to agents
         # This parameter is kept for backwards compatibility with saved artifacts
